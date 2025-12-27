@@ -277,7 +277,7 @@ function AboutSection() {
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
                                 className: "text-muted-foreground text-sm",
-                                children: "/ˈargo.blog/"
+                                children: "/feito por alex martins/"
                             }, void 0, false, {
                                 fileName: "[project]/components/about-section.tsx",
                                 lineNumber: 9,
@@ -294,7 +294,7 @@ function AboutSection() {
                         children: [
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
                                 className: "text-muted-foreground",
-                                children: "noun"
+                                children: "substantivo"
                             }, void 0, false, {
                                 fileName: "[project]/components/about-section.tsx",
                                 lineNumber: 13,
@@ -302,53 +302,15 @@ function AboutSection() {
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("ol", {
                                 className: "space-y-2 list-decimal list-inside",
-                                children: [
-                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("li", {
-                                        className: "text-foreground",
-                                        children: "graduando em filosofia"
-                                    }, void 0, false, {
-                                        fileName: "[project]/components/about-section.tsx",
-                                        lineNumber: 15,
-                                        columnNumber: 11
-                                    }, this),
-                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("li", {
-                                        className: "text-foreground",
-                                        children: [
-                                            "founding design engineer at",
-                                            " ",
-                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("a", {
-                                                href: "https://paradigmai.com",
-                                                target: "_blank",
-                                                rel: "noopener noreferrer",
-                                                className: "text-foreground opacity-70 underline decoration-dotted decoration-1 underline-offset-2 transition-all hover:opacity-100 hover:decoration-solid",
-                                                children: "Paradigm"
-                                            }, void 0, false, {
-                                                fileName: "[project]/components/about-section.tsx",
-                                                lineNumber: 20,
-                                                columnNumber: 13
-                                            }, this),
-                                            "; previously at",
-                                            " ",
-                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("a", {
-                                                href: "https://vercel.com",
-                                                target: "_blank",
-                                                rel: "noopener noreferrer",
-                                                className: "text-foreground opacity-70 underline decoration-dotted decoration-1 underline-offset-2 transition-all hover:opacity-100 hover:decoration-solid",
-                                                children: "Vercel"
-                                            }, void 0, false, {
-                                                fileName: "[project]/components/about-section.tsx",
-                                                lineNumber: 29,
-                                                columnNumber: 13
-                                            }, this),
-                                            "."
-                                        ]
-                                    }, void 0, true, {
-                                        fileName: "[project]/components/about-section.tsx",
-                                        lineNumber: 18,
-                                        columnNumber: 11
-                                    }, this)
-                                ]
-                            }, void 0, true, {
+                                children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("li", {
+                                    className: "text-foreground",
+                                    children: "graduando em filosofia, diretor de arte, poeta amador, programador amador, etc..."
+                                }, void 0, false, {
+                                    fileName: "[project]/components/about-section.tsx",
+                                    lineNumber: 15,
+                                    columnNumber: 11
+                                }, this)
+                            }, void 0, false, {
                                 fileName: "[project]/components/about-section.tsx",
                                 lineNumber: 14,
                                 columnNumber: 9
@@ -367,7 +329,7 @@ function AboutSection() {
                                 children: "Contato:"
                             }, void 0, false, {
                                 fileName: "[project]/components/about-section.tsx",
-                                lineNumber: 43,
+                                lineNumber: 22,
                                 columnNumber: 9
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("a", {
@@ -378,7 +340,7 @@ function AboutSection() {
                                 children: "Instagram"
                             }, void 0, false, {
                                 fileName: "[project]/components/about-section.tsx",
-                                lineNumber: 44,
+                                lineNumber: 23,
                                 columnNumber: 9
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("a", {
@@ -389,13 +351,24 @@ function AboutSection() {
                                 children: "Youtube"
                             }, void 0, false, {
                                 fileName: "[project]/components/about-section.tsx",
-                                lineNumber: 52,
+                                lineNumber: 31,
+                                columnNumber: 9
+                            }, this),
+                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("a", {
+                                href: "mailto:contato@alexmartins.work",
+                                target: "_blank",
+                                rel: "noopener noreferrer",
+                                className: "text-foreground opacity-70 underline decoration-dotted decoration-1 underline-offset-2 transition-all hover:opacity-100 hover:decoration-solid",
+                                children: "Email"
+                            }, void 0, false, {
+                                fileName: "[project]/components/about-section.tsx",
+                                lineNumber: 39,
                                 columnNumber: 9
                             }, this)
                         ]
                     }, void 0, true, {
                         fileName: "[project]/components/about-section.tsx",
-                        lineNumber: 42,
+                        lineNumber: 21,
                         columnNumber: 7
                     }, this)
                 ]
@@ -406,7 +379,7 @@ function AboutSection() {
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$footer$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Footer"], {}, void 0, false, {
                 fileName: "[project]/components/about-section.tsx",
-                lineNumber: 63,
+                lineNumber: 50,
                 columnNumber: 7
             }, this)
         ]

@@ -13,7 +13,7 @@ const stixTwoText = {
 }
 
 export const metadata: Metadata = {
-  title: "floguo's cozy nook",
+  title: "argoblog",
   description: "personal website of flora guo",
   generator: "v0.app",
   icons: {

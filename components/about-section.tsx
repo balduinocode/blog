@@ -6,35 +6,14 @@ export function AboutSection() {
       <div className="space-y-8">
       <div>
         <h1 className="text-5xl font-serif mb-2">argo·blog</h1>
-        <p className="text-muted-foreground text-sm">/ˈargo.blog/</p>
+        <p className="text-muted-foreground text-sm">/feito por alex martins/</p>
       </div>
 
       <div className="space-y-4">
-        <p className="text-muted-foreground">noun</p>
+        <p className="text-muted-foreground">substantivo</p>
         <ol className="space-y-2 list-decimal list-inside">
           <li className="text-foreground">
-            graduando em filosofia
-          </li>
-          <li className="text-foreground">
-            founding design engineer at{" "}
-            <a
-              href="https://paradigmai.com"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-foreground opacity-70 underline decoration-dotted decoration-1 underline-offset-2 transition-all hover:opacity-100 hover:decoration-solid"
-            >
-              Paradigm
-            </a>
-            ; previously at{" "}
-            <a
-              href="https://vercel.com"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-foreground opacity-70 underline decoration-dotted decoration-1 underline-offset-2 transition-all hover:opacity-100 hover:decoration-solid"
-            >
-              Vercel
-            </a>
-            .
+            graduando em filosofia, diretor de arte, poeta amador, programador amador, etc...
           </li>
         </ol>
       </div>
@@ -56,6 +35,14 @@ export function AboutSection() {
           className="text-foreground opacity-70 underline decoration-dotted decoration-1 underline-offset-2 transition-all hover:opacity-100 hover:decoration-solid"
         >
           Youtube
+        </a>
+        <a
+          href="mailto:contato@alexmartins.work"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="text-foreground opacity-70 underline decoration-dotted decoration-1 underline-offset-2 transition-all hover:opacity-100 hover:decoration-solid"
+        >
+          Email
         </a>
       </div>
       </div>
