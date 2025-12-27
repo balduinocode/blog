@@ -4,6 +4,9 @@ import matter from "gray-matter"
 
 const notesDirectory = path.join(process.cwd(), "content/notes")
 const booksDirectory = path.join(process.cwd(), "content/books")
+const modelosMentaisDirectory = path.join(process.cwd(), "content/modelos-mentais")
+const projetosDirectory = path.join(process.cwd(), "content/projetos")
+const poemasDirectory = path.join(process.cwd(), "content/poemas")
 
 export interface NoteMetadata {
   slug: string
@@ -27,6 +30,39 @@ export interface BookMetadata {
 }
 
 export interface BookWithContent extends BookMetadata {
+  content: string
+}
+
+export interface ModeloMentalMetadata {
+  slug: string
+  title: string
+  date: string
+  excerpt: string
+}
+
+export interface ModeloMentalWithContent extends ModeloMentalMetadata {
+  content: string
+}
+
+export interface ProjetoMetadata {
+  slug: string
+  title: string
+  date: string
+  excerpt: string
+}
+
+export interface ProjetoWithContent extends ProjetoMetadata {
+  content: string
+}
+
+export interface PoemaMetadata {
+  slug: string
+  title: string
+  date: string
+  excerpt: string
+}
+
+export interface PoemaWithContent extends PoemaMetadata {
   content: string
 }
 
@@ -241,4 +277,148 @@ export function markdownToHtml(markdown: string): string {
   }
 
   return html.join("\n")
+}
+
+// Helper to get all modelo mental files
+export function getModeloMentalFiles() {
+  if (!fs.existsSync(modelosMentaisDirectory)) {
+    return []
+  }
+  return fs.readdirSync(modelosMentaisDirectory).filter((file) => file.endsWith(".mdx"))
+}
+
+// Get all modelos mentais metadata
+export function getAllModelosMentais(): ModeloMentalMetadata[] {
+  const files = getModeloMentalFiles()
+
+  const modelosMentais = files.map((filename) => {
+    const slug = filename.replace(/\.mdx$/, "")
+    const fullPath = path.join(modelosMentaisDirectory, filename)
+    const fileContents = fs.readFileSync(fullPath, "utf8")
+    const { data } = matter(fileContents)
+
+    return {
+      slug,
+      title: data.title || slug,
+      date: data.date || "",
+      excerpt: data.excerpt || "",
+    }
+  })
+
+  return modelosMentais.sort((a, b) => (a.date > b.date ? -1 : 1))
+}
+
+// Get a single modelo mental by slug
+export function getModeloMentalBySlug(slug: string): ModeloMentalWithContent | null {
+  try {
+    const fullPath = path.join(modelosMentaisDirectory, `${slug}.mdx`)
+    const fileContents = fs.readFileSync(fullPath, "utf8")
+    const { data, content } = matter(fileContents)
+
+    return {
+      slug,
+      title: data.title || slug,
+      date: data.date || "",
+      excerpt: data.excerpt || "",
+      content,
+    }
+  } catch {
+    return null
+  }
+}
+
+// Helper to get all projeto files
+export function getProjetoFiles() {
+  if (!fs.existsSync(projetosDirectory)) {
+    return []
+  }
+  return fs.readdirSync(projetosDirectory).filter((file) => file.endsWith(".mdx"))
+}
+
+// Get all projetos metadata
+export function getAllProjetos(): ProjetoMetadata[] {
+  const files = getProjetoFiles()
+
+  const projetos = files.map((filename) => {
+    const slug = filename.replace(/\.mdx$/, "")
+    const fullPath = path.join(projetosDirectory, filename)
+    const fileContents = fs.readFileSync(fullPath, "utf8")
+    const { data } = matter(fileContents)
+
+    return {
+      slug,
+      title: data.title || slug,
+      date: data.date || "",
+      excerpt: data.excerpt || "",
+    }
+  })
+
+  return projetos.sort((a, b) => (a.date > b.date ? -1 : 1))
+}
+
+// Get a single projeto by slug
+export function getProjetoBySlug(slug: string): ProjetoWithContent | null {
+  try {
+    const fullPath = path.join(projetosDirectory, `${slug}.mdx`)
+    const fileContents = fs.readFileSync(fullPath, "utf8")
+    const { data, content } = matter(fileContents)
+
+    return {
+      slug,
+      title: data.title || slug,
+      date: data.date || "",
+      excerpt: data.excerpt || "",
+      content,
+    }
+  } catch {
+    return null
+  }
+}
+
+// Helper to get all poema files
+export function getPoemaFiles() {
+  if (!fs.existsSync(poemasDirectory)) {
+    return []
+  }
+  return fs.readdirSync(poemasDirectory).filter((file) => file.endsWith(".mdx"))
+}
+
+// Get all poemas metadata
+export function getAllPoemas(): PoemaMetadata[] {
+  const files = getPoemaFiles()
+
+  const poemas = files.map((filename) => {
+    const slug = filename.replace(/\.mdx$/, "")
+    const fullPath = path.join(poemasDirectory, filename)
+    const fileContents = fs.readFileSync(fullPath, "utf8")
+    const { data } = matter(fileContents)
+
+    return {
+      slug,
+      title: data.title || slug,
+      date: data.date || "",
+      excerpt: data.excerpt || "",
+    }
+  })
+
+  return poemas.sort((a, b) => (a.date > b.date ? -1 : 1))
+}
+
+// Get a single poema by slug
+export function getPoemaBySlug(slug: string): PoemaWithContent | null {
+  try {
+    const fullPath = path.join(poemasDirectory, `${slug}.mdx`)
+    const fileContents = fs.readFileSync(fullPath, "utf8")
+    const { data, content } = matter(fileContents)
+
+    return {
+      slug,
+      title: data.title || slug,
+      date: data.date || "",
+      excerpt: data.excerpt || "",
+      content,
+    }
+  } catch {
+    return null
+  }
 }

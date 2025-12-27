@@ -1,7 +1,7 @@
 import { cn } from "@/lib/utils"
 import { ResizeHandle } from "./resize-handle"
 
-type Tab = "about" | "bookshelf" | "notes"
+type Tab = "inicio" | "notas" | "modelos-mentais" | "poemas" | "projetos"
 
 interface SidebarProps {
   activeTab: Tab
@@ -12,8 +12,16 @@ interface SidebarProps {
   mobileMenuOpen: boolean
 }
 
+const tabLabels: Record<Tab, string> = {
+  inicio: "Início",
+  notas: "Notas",
+  "modelos-mentais": "Modelos Mentais",
+  poemas: "Poemas",
+  projetos: "Projetos",
+}
+
 export function Sidebar({ activeTab, onTabChange, width, isDragging, onMouseDown, mobileMenuOpen }: SidebarProps) {
-  const tabs: Tab[] = ["about", "bookshelf", "notes"]
+  const tabs: Tab[] = ["inicio", "notas", "modelos-mentais", "poemas", "projetos"]
 
   return (
     <aside
@@ -58,7 +66,7 @@ export function Sidebar({ activeTab, onTabChange, width, isDragging, onMouseDown
               activeTab === tab ? "text-foreground" : "text-foreground/40 hover:text-foreground/70",
             )}
           >
-            {tab.charAt(0).toUpperCase() + tab.slice(1)}
+            {tabLabels[tab]}
           </button>
         ))}
       </nav>

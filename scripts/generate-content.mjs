@@ -157,6 +157,10 @@ export const notes: Note[] = ${JSON.stringify(notes, null, 2)}
 // Generate books content
 function generateBooks() {
   const booksDir = path.join(rootDir, "content/books")
+  if (!fs.existsSync(booksDir)) {
+    console.log("⚠ Skipping books (directory not found)")
+    return
+  }
   const files = fs.readdirSync(booksDir).filter((f) => f.endsWith(".mdx"))
 
   const books = files.map((filename) => {
@@ -204,6 +208,126 @@ export const books: Book[] = ${JSON.stringify(books, null, 2)}
   console.log(`✓ Generated content for ${books.length} books`)
 }
 
+// Generate modelos mentais content
+function generateModelosMentais() {
+  const modelosMentaisDir = path.join(rootDir, "content/modelos-mentais")
+  if (!fs.existsSync(modelosMentaisDir)) {
+    console.log("⚠ Skipping modelos mentais (directory not found)")
+    return
+  }
+  const files = fs.readdirSync(modelosMentaisDir).filter((f) => f.endsWith(".mdx"))
+
+  const modelosMentais = files.map((filename) => {
+    const slug = filename.replace(/\.mdx$/, "")
+    const fullPath = path.join(modelosMentaisDir, filename)
+    const fileContents = fs.readFileSync(fullPath, "utf8")
+    const { data, content } = matter(fileContents)
+
+    return {
+      slug,
+      title: data.title || slug,
+      date: data.date || "",
+      excerpt: data.excerpt || "",
+      content: markdownToHtml(content),
+    }
+  })
+
+  const output = `export interface ModeloMental {
+  slug: string
+  title: string
+  date: string
+  excerpt: string
+  content: string
+}
+
+export const modelosMentais: ModeloMental[] = ${JSON.stringify(modelosMentais, null, 2)}
+`
+
+  fs.writeFileSync(path.join(rootDir, "content/modelos-mentais.tsx"), output)
+  console.log(`✓ Generated content for ${modelosMentais.length} modelos mentais`)
+}
+
+// Generate projetos content
+function generateProjetos() {
+  const projetosDir = path.join(rootDir, "content/projetos")
+  if (!fs.existsSync(projetosDir)) {
+    console.log("⚠ Skipping projetos (directory not found)")
+    return
+  }
+  const files = fs.readdirSync(projetosDir).filter((f) => f.endsWith(".mdx"))
+
+  const projetos = files.map((filename) => {
+    const slug = filename.replace(/\.mdx$/, "")
+    const fullPath = path.join(projetosDir, filename)
+    const fileContents = fs.readFileSync(fullPath, "utf8")
+    const { data, content } = matter(fileContents)
+
+    return {
+      slug,
+      title: data.title || slug,
+      date: data.date || "",
+      excerpt: data.excerpt || "",
+      content: markdownToHtml(content),
+    }
+  })
+
+  const output = `export interface Projeto {
+  slug: string
+  title: string
+  date: string
+  excerpt: string
+  content: string
+}
+
+export const projetos: Projeto[] = ${JSON.stringify(projetos, null, 2)}
+`
+
+  fs.writeFileSync(path.join(rootDir, "content/projetos.tsx"), output)
+  console.log(`✓ Generated content for ${projetos.length} projetos`)
+}
+
+// Generate poemas content
+function generatePoemas() {
+  const poemasDir = path.join(rootDir, "content/poemas")
+  if (!fs.existsSync(poemasDir)) {
+    console.log("⚠ Skipping poemas (directory not found)")
+    return
+  }
+  const files = fs.readdirSync(poemasDir).filter((f) => f.endsWith(".mdx"))
+
+  const poemas = files.map((filename) => {
+    const slug = filename.replace(/\.mdx$/, "")
+    const fullPath = path.join(poemasDir, filename)
+    const fileContents = fs.readFileSync(fullPath, "utf8")
+    const { data, content } = matter(fileContents)
+
+    return {
+      slug,
+      title: data.title || slug,
+      date: data.date || "",
+      excerpt: data.excerpt || "",
+      content: markdownToHtml(content),
+    }
+  })
+
+  const output = `export interface Poema {
+  slug: string
+  title: string
+  date: string
+  excerpt: string
+  content: string
+}
+
+export const poemas: Poema[] = ${JSON.stringify(poemas, null, 2)}
+`
+
+  fs.writeFileSync(path.join(rootDir, "content/poemas.tsx"), output)
+  console.log(`✓ Generated content for ${poemas.length} poemas`)
+}
+
 // Run generators
 generateNotes()
 generateBooks()
+generateModelosMentais()
+generateProjetos()
+generatePoemas()
