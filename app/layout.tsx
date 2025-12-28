@@ -1,6 +1,7 @@
 import type React from "react"
 import type { Metadata } from "next"
 import { Analytics } from "@vercel/analytics/next"
+import { ThemeProvider } from "@/components/theme-provider"
 import "./globals.css"
 
 const zalandoSans = {
@@ -40,7 +41,9 @@ export default function RootLayout({
         />
       </head>
       <body className={`${stixTwoText.variable} ${zalandoSans.variable} font-sans antialiased`}>
-        {children}
+        <ThemeProvider attribute="class" defaultTheme="light" enableSystem>
+          {children}
+        </ThemeProvider>
         <Analytics />
       </body>
     </html>

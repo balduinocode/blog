@@ -166,6 +166,58 @@ export function getBookBySlug(slug: string): BookWithContent | null {
   }
 }
 
+// Minimal Markdown → HTML converter for poemas (preserves line breaks)
+export function markdownToHtmlPoema(markdown: string): string {
+  const lines = markdown.replace(/\r\n?/g, "\n").split("\n")
+
+  function escapeHtml(raw: string): string {
+    return raw.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;")
+  }
+
+  function processInlineMarkdown(text: string): string {
+    const linkPattern = /\[([^\]]+)\]\(([^)]+)\)/g
+    const links: Array<{ text: string; url: string }> = []
+    let match
+
+    while ((match = linkPattern.exec(text)) !== null) {
+      links.push({ text: match[1], url: match[2] })
+    }
+
+    let processedText = text.replace(linkPattern, '___LINK___')
+    processedText = escapeHtml(processedText)
+
+    links.forEach(({ text, url }) => {
+      processedText = processedText.replace('___LINK___',
+        `<a href="${url}" target="_blank" rel="noopener noreferrer">${text}</a>`)
+    })
+
+    return processedText
+  }
+
+  const html: string[] = []
+  for (let i = 0; i < lines.length; i++) {
+    const line = lines[i]
+    
+    if (/^\s*$/.test(line)) {
+      // Empty line = extra line break in poem
+      html.push('<br/>')
+      continue
+    }
+
+    // Process each line individually, preserving line breaks
+    const processedLine = processInlineMarkdown(line.trim())
+    if (processedLine) {
+      html.push(processedLine)
+      // Add line break after each line (except if it's the very last line)
+      if (i < lines.length - 1) {
+        html.push('<br/>')
+      }
+    }
+  }
+
+  return html.join('')
+}
+
 // Minimal Markdown → HTML converter for our MDX content
 // Supports: headings, paragraphs, blockquotes, lists, links, and fenced code blocks
 export function markdownToHtml(markdown: string): string {

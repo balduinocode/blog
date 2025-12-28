@@ -1,5 +1,11 @@
+"use client"
+
+import { useEffect, useState } from "react"
 import { cn } from "@/lib/utils"
 import { ResizeHandle } from "./resize-handle"
+import { useTheme } from "next-themes"
+import { Moon, Sun } from "lucide-react"
+import * as Switch from "@radix-ui/react-switch"
 
 type Tab = "inicio" | "notas" | "modelos-mentais" | "poemas" | "projetos"
 
@@ -22,6 +28,14 @@ const tabLabels: Record<Tab, string> = {
 
 export function Sidebar({ activeTab, onTabChange, width, isDragging, onMouseDown, mobileMenuOpen }: SidebarProps) {
   const tabs: Tab[] = ["inicio", "notas", "modelos-mentais", "poemas", "projetos"]
+  const { theme, setTheme } = useTheme()
+  const [mounted, setMounted] = useState(false)
+  
+  useEffect(() => {
+    setMounted(true)
+  }, [])
+  
+  const isDark = theme === "dark"
 
   return (
     <aside
@@ -69,6 +83,21 @@ export function Sidebar({ activeTab, onTabChange, width, isDragging, onMouseDown
             {tabLabels[tab]}
           </button>
         ))}
+        
+        {/* Theme Toggle Switch */}
+        {mounted && (
+          <div className="flex items-center gap-2 mt-6 pt-2">
+            <Sun className="w-3 h-3 text-foreground/30" />
+            <Switch.Root
+              checked={isDark}
+              onCheckedChange={(checked) => setTheme(checked ? "dark" : "light")}
+              className="relative w-8 h-4 bg-foreground/10 rounded-full data-[state=checked]:bg-foreground/20 transition-colors outline-none cursor-pointer"
+            >
+              <Switch.Thumb className="block w-3 h-3 bg-foreground/30 rounded-full transition-transform duration-200 translate-x-0.5 data-[state=checked]:translate-x-[18px]" />
+            </Switch.Root>
+            <Moon className="w-3 h-3 text-foreground/30" />
+          </div>
+        )}
       </nav>
 
       <ResizeHandle onMouseDown={onMouseDown} isDragging={isDragging} />

@@ -1,5 +1,5 @@
 import { NextResponse } from "next/server"
-import { getPoemaBySlug, markdownToHtml } from "@/lib/mdx"
+import { getPoemaBySlug, markdownToHtmlPoema } from "@/lib/mdx"
 import { poemas } from "@/content/poemas"
 
 export async function GET(
@@ -14,7 +14,7 @@ export async function GET(
       slug: mdx.slug,
       title: mdx.title,
       date: mdx.date,
-      contentHtml: markdownToHtml(mdx.content),
+      contentHtml: markdownToHtmlPoema(mdx.content),
     })
   }
 

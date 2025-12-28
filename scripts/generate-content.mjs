@@ -7,6 +7,56 @@ const __filename = fileURLToPath(import.meta.url)
 const __dirname = path.dirname(__filename)
 const rootDir = path.join(__dirname, "..")
 
+// Minimal Markdown → HTML converter for poemas (preserves line breaks)
+function markdownToHtmlPoema(markdown) {
+  const lines = markdown.replace(/\r\n?/g, "\n").split("\n")
+
+  function escapeHtml(raw) {
+    return raw.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;")
+  }
+
+  function processInlineMarkdown(text) {
+    const linkPattern = /\[([^\]]+)\]\(([^)]+)\)/g
+    const links = []
+    let match
+
+    while ((match = linkPattern.exec(text)) !== null) {
+      links.push({ text: match[1], url: match[2] })
+    }
+
+    let processedText = text.replace(linkPattern, '___LINK___')
+    processedText = escapeHtml(processedText)
+
+    links.forEach(({ text, url }) => {
+      processedText = processedText.replace('___LINK___',
+        `<a href="${url}" target="_blank" rel="noopener noreferrer">${text}</a>`)
+    })
+
+    return processedText
+  }
+
+  const html = []
+  for (let i = 0; i < lines.length; i++) {
+    const line = lines[i]
+    
+    if (/^\s*$/.test(line)) {
+      // Empty line = extra line break in poem
+      html.push('<br/>')
+      continue
+    }
+
+    // Process each line individually, preserving line breaks
+    const processedLine = processInlineMarkdown(line.trim())
+    if (processedLine) {
+      html.push(processedLine)
+      // Add line break after each line
+      html.push('<br/>')
+    }
+  }
+
+  return html.join('')
+}
+
 // Minimal Markdown → HTML converter
 function markdownToHtml(markdown) {
   const lines = markdown.replace(/\r\n?/g, "\n").split("\n")
@@ -300,13 +350,13 @@ function generatePoemas() {
     const fullPath = path.join(poemasDir, filename)
     const fileContents = fs.readFileSync(fullPath, "utf8")
     const { data, content } = matter(fileContents)
-
+    
     return {
       slug,
       title: data.title || slug,
       date: data.date || "",
       excerpt: data.excerpt || "",
-      content: markdownToHtml(content),
+      content: markdownToHtmlPoema(content),
     }
   })
 
