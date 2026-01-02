@@ -11,8 +11,9 @@ import { ContentPanel } from "@/components/content-panel"
 import { ModelosMentaisSection } from "@/components/modelos-mentais-section"
 import { PoemasSection } from "@/components/poemas-section"
 import { ProjetosSection } from "@/components/projetos-section"
+import { RecitacoesSection } from "@/components/recitacoes-section"
 
-type Tab = "inicio" | "notas" | "modelos-mentais" | "poemas" | "projetos"
+type Tab = "inicio" | "notas" | "modelos-mentais" | "poemas" | "projetos" | "recitacoes"
 
 export default function PersonalWebsite() {
   const [activeTab, setActiveTab] = useState<Tab>("inicio")
@@ -72,6 +73,8 @@ export default function PersonalWebsite() {
         <ProjetosSection sidebarWidth={sidebar.width} />
       ) : activeTab === "poemas" ? (
         <PoemasSection sidebarWidth={sidebar.width} />
+      ) : activeTab === "recitacoes" ? (
+        <RecitacoesSection sidebarWidth={sidebar.width} />
       ) : (
         <main className="flex-1 px-8 md:px-16 max-w-3xl overflow-y-auto pt-28 md:pt-16 flex flex-col justify-between min-h-screen pb-0">
           {activeTab === "inicio" && <AboutSection />}

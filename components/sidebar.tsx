@@ -7,7 +7,7 @@ import { useTheme } from "next-themes"
 import { Moon, Sun } from "lucide-react"
 import * as Switch from "@radix-ui/react-switch"
 
-type Tab = "inicio" | "notas" | "modelos-mentais" | "poemas" | "projetos"
+type Tab = "inicio" | "notas" | "modelos-mentais" | "poemas" | "projetos" | "recitacoes"
 
 interface SidebarProps {
   activeTab: Tab
@@ -24,10 +24,11 @@ const tabLabels: Record<Tab, string> = {
   "modelos-mentais": "Modelos Mentais",
   poemas: "Poemas",
   projetos: "Projetos",
+  recitacoes: "Recitações",
 }
 
 export function Sidebar({ activeTab, onTabChange, width, isDragging, onMouseDown, mobileMenuOpen }: SidebarProps) {
-  const tabs: Tab[] = ["inicio", "notas", "modelos-mentais", "poemas", "projetos"]
+  const tabs: Tab[] = ["inicio", "notas", "modelos-mentais", "poemas", "recitacoes", "projetos"]
   const { theme, setTheme } = useTheme()
   const [mounted, setMounted] = useState(false)
   
