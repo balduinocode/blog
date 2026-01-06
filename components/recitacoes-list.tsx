@@ -72,11 +72,22 @@ export function RecitacoesList({ selectedRecitacao, onSelectRecitacao, width, is
   }, [])
 
   const sortedRecitacoes = sortRecitacoesByDate(recitacoes)
+  const [isMobile, setIsMobile] = useState(false)
+
+  useEffect(() => {
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth < 768)
+    }
+    checkMobile()
+    window.addEventListener('resize', checkMobile)
+    return () => window.removeEventListener('resize', checkMobile)
+  }, [])
+
   return (
     <div
-      style={{ width: `${width}px` }}
+      style={isMobile ? undefined : { width: `${width}px` }}
       className={cn(
-        "relative overflow-y-auto shrink-0 border-r border-border",
+        "relative overflow-y-auto shrink-0 border-r border-border max-md:w-full",
         selectedRecitacao && "max-md:hidden",
       )}
     >

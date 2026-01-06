@@ -2,6 +2,7 @@ import { projetos } from "@/content/projetos"
 import { cn } from "@/lib/utils"
 import { ResizeHandle } from "./resize-handle"
 import { Footer } from "./footer"
+import { useEffect, useState } from "react"
 
 interface ProjetosListProps {
   selectedProjeto: string | null
@@ -44,11 +45,22 @@ function sortProjetosByDate() {
 
 export function ProjetosList({ selectedProjeto, onSelectProjeto, width, isDragging, onMouseDown }: ProjetosListProps) {
   const sortedProjetos = sortProjetosByDate()
+  const [isMobile, setIsMobile] = useState(false)
+
+  useEffect(() => {
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth < 768)
+    }
+    checkMobile()
+    window.addEventListener('resize', checkMobile)
+    return () => window.removeEventListener('resize', checkMobile)
+  }, [])
+
   return (
     <div
-      style={{ width: `${width}px` }}
+      style={isMobile ? undefined : { width: `${width}px` }}
       className={cn(
-        "relative overflow-y-auto shrink-0 border-r border-border",
+        "relative overflow-y-auto shrink-0 border-r border-border max-md:w-full",
         selectedProjeto && "max-md:hidden",
       )}
     >

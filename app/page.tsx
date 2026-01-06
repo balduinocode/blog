@@ -34,7 +34,7 @@ export default function PersonalWebsite() {
   }
 
   return (
-    <div className="flex min-h-screen">
+    <div className="flex min-h-screen overflow-x-hidden">
       <button
         onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
         className="fixed top-6 left-6 z-50 md:hidden bg-background border border-border rounded-lg p-2.5 hover:bg-muted shadow-sm"
@@ -76,7 +76,7 @@ export default function PersonalWebsite() {
       ) : activeTab === "recitacoes" ? (
         <RecitacoesSection sidebarWidth={sidebar.width} />
       ) : (
-        <main className="flex-1 px-8 md:px-16 max-w-3xl overflow-y-auto pt-28 md:pt-16 flex flex-col justify-between min-h-screen pb-0">
+        <main className="flex-1 px-8 md:px-16 max-w-3xl overflow-y-auto overflow-x-hidden pt-28 md:pt-16 flex flex-col justify-between min-h-screen pb-0">
           {activeTab === "inicio" && <AboutSection />}
         </main>
       )}
