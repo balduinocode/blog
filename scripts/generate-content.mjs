@@ -336,6 +336,33 @@ export const projetos: Projeto[] = ${JSON.stringify(projetos, null, 2)}
   console.log(`✓ Generated content for ${projetos.length} projetos`)
 }
 
+// Helper function to parse date string and return comparable timestamp
+function parseDate(dateString) {
+  if (!dateString) return 0
+  // Try to parse different date formats
+  if (dateString.includes("-")) {
+    const [month, day, year] = dateString.split("-").map(Number)
+    return new Date(year, month - 1, day).getTime()
+  }
+  // For formats like "September 2025" or "Novembro 2025"
+  const months = {
+    "janeiro": 0, "fevereiro": 1, "março": 2, "abril": 3, "maio": 4, "junho": 5,
+    "julho": 6, "agosto": 7, "setembro": 8, "outubro": 9, "novembro": 10, "dezembro": 11,
+    "january": 0, "february": 1, "march": 2, "april": 3, "may": 4, "june": 5,
+    "july": 6, "august": 7, "september": 8, "october": 9, "november": 10, "december": 11
+  }
+  const parts = dateString.toLowerCase().split(" ")
+  if (parts.length >= 2) {
+    const month = months[parts[0]]
+    const year = parseInt(parts[1])
+    if (month !== undefined && !isNaN(year)) {
+      return new Date(year, month, 1).getTime()
+    }
+  }
+  // Fallback: return 0 for unparseable dates
+  return 0
+}
+
 // Generate poemas content
 function generatePoemas() {
   const poemasDir = path.join(rootDir, "content/poemas")
@@ -343,10 +370,10 @@ function generatePoemas() {
     console.log("⚠ Skipping poemas (directory not found)")
     return
   }
-  const files = fs.readdirSync(poemasDir).filter((f) => f.endsWith(".mdx"))
+  const files = fs.readdirSync(poemasDir).filter((f) => f.endsWith(".mdx") || f.endsWith(".md"))
 
   const poemas = files.map((filename) => {
-    const slug = filename.replace(/\.mdx$/, "")
+    const slug = filename.replace(/\.(mdx|md)$/, "")
     const fullPath = path.join(poemasDir, filename)
     const fileContents = fs.readFileSync(fullPath, "utf8")
     const { data, content } = matter(fileContents)
@@ -358,7 +385,7 @@ function generatePoemas() {
       excerpt: data.excerpt || "",
       content: markdownToHtmlPoema(content),
     }
-  })
+  }).sort((a, b) => parseDate(b.date) - parseDate(a.date))
 
   const output = `export interface Poema {
   slug: string

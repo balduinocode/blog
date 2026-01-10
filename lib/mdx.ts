@@ -432,7 +432,7 @@ export function getPoemaFiles() {
   if (!fs.existsSync(poemasDirectory)) {
     return []
   }
-  return fs.readdirSync(poemasDirectory).filter((file) => file.endsWith(".mdx"))
+  return fs.readdirSync(poemasDirectory).filter((file) => file.endsWith(".mdx") || file.endsWith(".md"))
 }
 
 // Get all poemas metadata
@@ -440,7 +440,7 @@ export function getAllPoemas(): PoemaMetadata[] {
   const files = getPoemaFiles()
 
   const poemas = files.map((filename) => {
-    const slug = filename.replace(/\.mdx$/, "")
+    const slug = filename.replace(/\.(mdx|md)$/, "")
     const fullPath = path.join(poemasDirectory, filename)
     const fileContents = fs.readFileSync(fullPath, "utf8")
     const { data } = matter(fileContents)
@@ -458,19 +458,26 @@ export function getAllPoemas(): PoemaMetadata[] {
 
 // Get a single poema by slug
 export function getPoemaBySlug(slug: string): PoemaWithContent | null {
-  try {
-    const fullPath = path.join(poemasDirectory, `${slug}.mdx`)
-    const fileContents = fs.readFileSync(fullPath, "utf8")
-    const { data, content } = matter(fileContents)
+  // Try .mdx first, then .md
+  const extensions = [".mdx", ".md"]
+  for (const ext of extensions) {
+    try {
+      const fullPath = path.join(poemasDirectory, `${slug}${ext}`)
+      if (fs.existsSync(fullPath)) {
+        const fileContents = fs.readFileSync(fullPath, "utf8")
+        const { data, content } = matter(fileContents)
 
-    return {
-      slug,
-      title: data.title || slug,
-      date: data.date || "",
-      excerpt: data.excerpt || "",
-      content,
+        return {
+          slug,
+          title: data.title || slug,
+          date: data.date || "",
+          excerpt: data.excerpt || "",
+          content,
+        }
+      }
+    } catch {
+      continue
     }
-  } catch {
-    return null
   }
+  return null
 }
