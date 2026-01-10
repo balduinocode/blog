@@ -2,7 +2,6 @@ import { modelosMentais } from "@/content/modelos-mentais"
 import { cn } from "@/lib/utils"
 import { ResizeHandle } from "./resize-handle"
 import { Footer } from "./footer"
-import { useEffect, useState } from "react"
 
 interface ModelosMentaisListProps {
   selectedModeloMental: string | null
@@ -45,22 +44,11 @@ function sortModelosMentaisByDate() {
 
 export function ModelosMentaisList({ selectedModeloMental, onSelectModeloMental, width, isDragging, onMouseDown }: ModelosMentaisListProps) {
   const sortedModelosMentais = sortModelosMentaisByDate()
-  const [isMobile, setIsMobile] = useState(false)
-
-  useEffect(() => {
-    const checkMobile = () => {
-      setIsMobile(window.innerWidth < 768)
-    }
-    checkMobile()
-    window.addEventListener('resize', checkMobile)
-    return () => window.removeEventListener('resize', checkMobile)
-  }, [])
-
   return (
     <div
-      style={isMobile ? undefined : { width: `${width}px` }}
+      style={{ width: `${width}px` }}
       className={cn(
-        "relative overflow-y-auto shrink-0 border-r border-border max-md:w-full",
+        "relative overflow-y-auto shrink-0 border-r border-border",
         selectedModeloMental && "max-md:hidden",
       )}
     >
