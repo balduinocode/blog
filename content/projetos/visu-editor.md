@@ -1,0 +1,27 @@
+---
+title: "Visu Editor"
+date: "Dezembro 2025"
+---
+
+Por ser técnico em Redes de Computadores, durante a época da escola, passei pela matéria de Lógica de Programação, que tornou-se muito útil para mim mais tarde. A criação de algoritmos é uma mão na roda para a resolução de problemas práticos e também para o aprendizado de qualquer assunto.
+
+Lembro que nas aulas usávamos um programa chamado VisualG, criado pelo prof. Carlos Nicolodi, inventor da linguagem Portugol que era usada no programa. Hoje em dia, ao dar aulas particulares, percebi no entanto que não poderia usá-lo. Havia um problema nele que incomodava-me: a interface datada. Ela carecia de uma modernização, considerando as leis envolvidas no processo de aprendizagem e as tendências psicológicas das gerações mais jovens.
+
+Assim nasceu o Visu, um web app feito para criar algoritmos em Portugol.
+
+Tomei como base de inspiração o bom e velho VisualG e adicionei alguns upgrades:
+
+- Construído em cima do Princípio de Pareto, buscando apenas 20% das funções necessárias para construir 80% dos algoritmos possíveis.
+- Por ser um web app, não precisa instalar, e tem alta responsividade para tablet e celular, pensando nas pessoas que não tem um computador à disposição
+- Sistema de abas para gerenciar múltiplos algoritmos
+- Integração de exemplos básicos de algoritmos
+- Integração de um manual de ajuda, que informa a estrutura básica, os tipos de variáveis, comandos de entrada, operadores, etc
+- Editor com syntax highlighting para imersão no algoritmo
+- Console de saída acoplado
+- Modo foco
+- Configurações de acessibilidade com personalização de temas (light/dark) e tamanho de fonte
+
+	Qualquer pessoa pode acessar o Visu por meio deste  [link.](https://visueditor.vercel.app)
+
+**OBS**: Já tenho novas melhorias para o Visu, principalmente na versão mobile. Um exemplo de melhoria futura é a adição de um função code-to-flowchart, onde o Visu geraria um fluxograma baseado no algoritmo criado, para o aluno ter a representação visual do que ele está fazendo.
+

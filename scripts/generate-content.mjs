@@ -172,10 +172,10 @@ function markdownToHtml(markdown) {
 // Generate notes content
 function generateNotes() {
   const notesDir = path.join(rootDir, "content/notes")
-  const files = fs.readdirSync(notesDir).filter((f) => f.endsWith(".mdx"))
+  const files = fs.readdirSync(notesDir).filter((f) => f.endsWith(".mdx") || f.endsWith(".md"))
 
   const notes = files.map((filename) => {
-    const slug = filename.replace(/\.mdx$/, "")
+    const slug = filename.replace(/\.(mdx|md)$/, "")
     const fullPath = path.join(notesDir, filename)
     const fileContents = fs.readFileSync(fullPath, "utf8")
     const { data, content } = matter(fileContents)
@@ -211,10 +211,10 @@ function generateBooks() {
     console.log("⚠ Skipping books (directory not found)")
     return
   }
-  const files = fs.readdirSync(booksDir).filter((f) => f.endsWith(".mdx"))
+  const files = fs.readdirSync(booksDir).filter((f) => f.endsWith(".mdx") || f.endsWith(".md"))
 
   const books = files.map((filename) => {
-    const slug = filename.replace(/\.mdx$/, "")
+    const slug = filename.replace(/\.(mdx|md)$/, "")
     const fullPath = path.join(booksDir, filename)
     const fileContents = fs.readFileSync(fullPath, "utf8")
     const { data, content: mdxContent } = matter(fileContents)
@@ -265,10 +265,10 @@ function generateModelosMentais() {
     console.log("⚠ Skipping modelos mentais (directory not found)")
     return
   }
-  const files = fs.readdirSync(modelosMentaisDir).filter((f) => f.endsWith(".mdx"))
+  const files = fs.readdirSync(modelosMentaisDir).filter((f) => f.endsWith(".mdx") || f.endsWith(".md"))
 
   const modelosMentais = files.map((filename) => {
-    const slug = filename.replace(/\.mdx$/, "")
+    const slug = filename.replace(/\.(mdx|md)$/, "")
     const fullPath = path.join(modelosMentaisDir, filename)
     const fileContents = fs.readFileSync(fullPath, "utf8")
     const { data, content } = matter(fileContents)
@@ -280,7 +280,7 @@ function generateModelosMentais() {
       excerpt: data.excerpt || "",
       content: markdownToHtml(content),
     }
-  })
+  }).sort((a, b) => parseDate(b.date) - parseDate(a.date))
 
   const output = `export interface ModeloMental {
   slug: string
@@ -293,7 +293,7 @@ function generateModelosMentais() {
 export const modelosMentais: ModeloMental[] = ${JSON.stringify(modelosMentais, null, 2)}
 `
 
-  fs.writeFileSync(path.join(rootDir, "content/modelos-mentais.tsx"), output)
+  fs.writeFileSync(path.join(rootDir, "content/modelos-mentais.tsx"), output, "utf8")
   console.log(`✓ Generated content for ${modelosMentais.length} modelos mentais`)
 }
 
@@ -304,10 +304,10 @@ function generateProjetos() {
     console.log("⚠ Skipping projetos (directory not found)")
     return
   }
-  const files = fs.readdirSync(projetosDir).filter((f) => f.endsWith(".mdx"))
+  const files = fs.readdirSync(projetosDir).filter((f) => f.endsWith(".mdx") || f.endsWith(".md"))
 
   const projetos = files.map((filename) => {
-    const slug = filename.replace(/\.mdx$/, "")
+    const slug = filename.replace(/\.(mdx|md)$/, "")
     const fullPath = path.join(projetosDir, filename)
     const fileContents = fs.readFileSync(fullPath, "utf8")
     const { data, content } = matter(fileContents)
@@ -319,7 +319,7 @@ function generateProjetos() {
       excerpt: data.excerpt || "",
       content: markdownToHtml(content),
     }
-  })
+  }).sort((a, b) => parseDate(b.date) - parseDate(a.date))
 
   const output = `export interface Projeto {
   slug: string
@@ -332,7 +332,7 @@ function generateProjetos() {
 export const projetos: Projeto[] = ${JSON.stringify(projetos, null, 2)}
 `
 
-  fs.writeFileSync(path.join(rootDir, "content/projetos.tsx"), output)
+  fs.writeFileSync(path.join(rootDir, "content/projetos.tsx"), output, "utf8")
   console.log(`✓ Generated content for ${projetos.length} projetos`)
 }
 
