@@ -224,3 +224,4 @@ Kandinsky estava, na verdade, tentando resolver problemas específicos em sua pi
 
 *A iteração é, na verdade, um feedback loop aplicado continuamente para aprimoramento.*
 
+

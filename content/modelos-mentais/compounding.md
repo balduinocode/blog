@@ -68,3 +68,4 @@ Imagine uma rede de nós que conectam aleatoriamente. A probabilidade de qualque
 
 > Este é um tipo de compounding onde bens ou conexões tendem a acumular-se em entidades ou indivíduos que já possuem mais. Por exemplo, pessoas com muitos amigos tendem a fazer ainda mais amigos, pois têm mais oportunidades de conhecer novas pessoas através de suas redes existentes
 
+

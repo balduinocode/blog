@@ -25,3 +25,4 @@ Tomei como base de inspiração o bom e velho VisualG e adicionei alguns upgrade
 
 **OBS**: Já tenho novas melhorias para o Visu, principalmente na versão mobile. Um exemplo de melhoria futura é a adição de um função code-to-flowchart, onde o Visu geraria um fluxograma baseado no algoritmo criado, para o aluno ter a representação visual do que ele está fazendo.
 
+

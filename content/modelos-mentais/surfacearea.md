@@ -25,3 +25,4 @@ O metrô de Londres, conhecido como "The Tube", possui um famoso mapa que tornou
 
 O modelo mental de Área de Superfície nos ensina que situações diferentes exigem áreas de superfície diferentes.
 
+

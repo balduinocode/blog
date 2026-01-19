@@ -35,3 +35,4 @@ O matemático alemão Carl Jacobi tornou-se famoso por resolver vários problema
 
 Lembro de uma das aventuras de Sherlock Holmes chamada "Escândalo na Boêmia". Em suma, Sherlock precisava achar uma foto escondida na casa de uma mulher chamada Irene Adler. Em vez de revirar a casa toda por meses, ele inverteu o problema. Ele pensou: "Se ela tem essa foto e ela é muito importante, onde ela guardaria se a casa estivesse pegando fogo?". Então, ele fingiu um incêndio e ela correu direto para o esconderijo secreto para salvar a foto! Ele achou em um minuto o que levaria dias para encontrar.
 
+

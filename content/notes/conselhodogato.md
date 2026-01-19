@@ -1,5 +1,5 @@
 ---
-title: "O gato de Cheshire estava certo"
+title: "Agir é informação"
 date: "Janeiro 2026"
 ---
 
