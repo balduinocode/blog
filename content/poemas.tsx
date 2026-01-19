@@ -20,5 +20,12 @@ export const poemas: Poema[] = [
     "date": "Novembro 2025",
     "excerpt": "",
     "content": "<br/>Um breve momento, demudado<br/>no eterno de nossas almas.<br/>Tal como memória vesuviana,<br/>esculpida no tempo caldeado<br/><br/>Sal que ergue-se vívido<br/>da tua fronte, eleva, aprofunda;<br/>Desfez-se da terra, fez morada<br/>no Ser, longe das penumbras.<br/><br/>És mármore, nunca vencido,<br/>por um destino já percorrido.<br/><br/><br/>"
+  },
+  {
+    "slug": "carmesim",
+    "title": "Soneto Carmesim",
+    "date": "Outubro 2025",
+    "excerpt": "",
+    "content": "<br/>Eis o que a Natureza me impele,<br/>degusta-me ver-te, ser veranil.<br/>Fulgura o extâse da luz em tua pele,<br/>tu, manhã que nunca caiu.<br/><br/>Observo com ardor teus lábios,<br/>nascentes de caloroso mel.<br/>Belos e ideais, não mais in dubio,<br/>em gentil meneio, abrem o dossel.<br/><br/>A leve brisa vem a acalentar<br/>teus cabelos em tom carmesim,<br/>como fios luzentes de Eos a ti.<br/><br/>Busco inteiro o gozo ao olhar<br/>o fogo de tua forma, assim<br/>a enlevar o que nunca esqueci.<br/>"
   }
 ]

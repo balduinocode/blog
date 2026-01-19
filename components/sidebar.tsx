@@ -7,7 +7,7 @@ import { useTheme } from "next-themes"
 import { Moon, Sun } from "lucide-react"
 import * as Switch from "@radix-ui/react-switch"
 
-type Tab = "inicio" | "notas" | "modelos-mentais" | "poemas" | "projetos" | "recitacoes"
+type Tab = "inicio" | "notas" | "modelos-mentais" | "poemas" | "projetos"
 
 interface SidebarProps {
   activeTab: Tab
@@ -24,18 +24,17 @@ const tabLabels: Record<Tab, string> = {
   "modelos-mentais": "Modelos Mentais",
   poemas: "Poemas",
   projetos: "Projetos",
-  recitacoes: "Recitações",
 }
 
 export function Sidebar({ activeTab, onTabChange, width, isDragging, onMouseDown, mobileMenuOpen }: SidebarProps) {
-  const tabs: Tab[] = ["inicio", "notas", "modelos-mentais", "poemas", "recitacoes", "projetos"]
+  const tabs: Tab[] = ["inicio", "notas", "modelos-mentais", "poemas", "projetos"]
   const { theme, setTheme } = useTheme()
   const [mounted, setMounted] = useState(false)
-  
+
   useEffect(() => {
     setMounted(true)
   }, [])
-  
+
   const isDark = theme === "dark"
 
   return (
@@ -84,7 +83,7 @@ export function Sidebar({ activeTab, onTabChange, width, isDragging, onMouseDown
             {tabLabels[tab]}
           </button>
         ))}
-        
+
         {/* Theme Toggle Switch */}
         {mounted && (
           <div className="flex items-center gap-2 mt-6 pt-2">
