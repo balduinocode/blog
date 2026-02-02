@@ -1,5 +1,5 @@
 ---
-title:"Filmes favoritos"
+title: "Filmes favoritos"
 date: "Fevereiro 2026"
 ---
 
