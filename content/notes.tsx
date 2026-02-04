@@ -29,6 +29,13 @@ export const notes: Note[] = [
     "content": "<p>Alice: — Gato Cheshire... pode me dizer qual o caminho que eu devo tomar?   Gato de Cheshire: — Isso depende muito do lugar para onde você quer ir.   Alice: — Eu não sei para onde ir! – disse Alice.   Gato de Cheshire: — Se você não sabe para onde ir, qualquer caminho serve.</p>\n<p>Agir é a melhor maneira de obter informações. O Gato de Cheshire não fala sobre a decisão de qual caminho seguir, mas sim sobre a decisão de começar a andar. Simples assim.</p>"
   },
   {
+    "slug": "filmes",
+    "title": "Filmes favoritos",
+    "date": "Fevereiro 2026",
+    "excerpt": "",
+    "content": "<p>Esta lista não segue nenhum ranking. São apenas filmes que gosto. Ei-la:</p>\n<ul><li>Vivre Sa Vie, de Jean-Luc Godard</li><li>A Hidden Life, de Terrence Malick</li><li>La Grande Bellezza, de Paolo Sorrentino</li><li>The Wind Rises, de Hayao Miyazaki</li><li>Another Round, de Thomas Vinterberg</li><li>O Fantástico Sr. Raposo, de Andersen</li><li>About TIme, de Richard Cutis</li><li>Before Sunrise, de Richard Linklater</li><li>Pulp Fiction, de Quentin Tarantino</li><li>Ame Agaru, de Takashi Koizumi</li><li>Interstellar, de Christopher Nolan</li><li>The Last Ronin, de Shigemichi Sugita</li><li>Contempt, de Jean-Luc Godard</li><li>La Giovinezza, de Paolo Sorrentino</li><li>My Darling Clementine, de John Ford</li><li>Casablanca, de Michael Curtiz</li><li>Love at Sea, de Guy Gilles</li><li>Todos os filmes do 007 com o Sean Connery</li><li>Flow, de Gints Zilbalodis</li><li>Le Genou de Claire, de Èric Rohmer</li><li>Rear Window, de Alfred Hitchcock</li></ul>"
+  },
+  {
     "slug": "vivresavie",
     "title": "Sobre falar em Vivre Sa Vie",
     "date": "Dezembro 2026",
