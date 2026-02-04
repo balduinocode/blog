@@ -174,20 +174,22 @@ function generateNotes() {
   const notesDir = path.join(rootDir, "content/notes")
   const files = fs.readdirSync(notesDir).filter((f) => f.endsWith(".mdx") || f.endsWith(".md"))
 
-  const notes = files.map((filename) => {
-    const slug = filename.replace(/\.(mdx|md)$/, "")
-    const fullPath = path.join(notesDir, filename)
-    const fileContents = fs.readFileSync(fullPath, "utf8")
-    const { data, content } = matter(fileContents)
+  const notes = files
+    .map((filename) => {
+      const slug = filename.replace(/\.(mdx|md)$/, "")
+      const fullPath = path.join(notesDir, filename)
+      const fileContents = fs.readFileSync(fullPath, "utf8")
+      const { data, content } = matter(fileContents)
 
-    return {
-      slug,
-      title: data.title || slug,
-      date: data.date || "",
-      excerpt: data.excerpt || "",
-      content: markdownToHtml(content),
-    }
-  })
+      return {
+        slug,
+        title: data.title || slug,
+        date: data.date || "",
+        excerpt: data.excerpt || "",
+        content: markdownToHtml(content),
+      }
+    })
+    .sort((a, b) => parseDate(b.date) - parseDate(a.date))
 
   const output = `export interface Note {
   slug: string

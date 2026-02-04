@@ -1,6 +1,6 @@
 ---
 title: "Sobre falar em Vivre Sa Vie"
-date: "Dezembro 2026"
+date: "Dezembro 2025"
 ---
 
 Tenho pensado em uma cena do filme "Vivre Sa Vie" de Jean-Luc Godard, quando ocorre o diálogo entre Nana e um filósofo. Há um momento em que ele diz:

@@ -1,6 +1,6 @@
 ---
 title: "Golden Boy"
-date: "February 2026"
+date: "Fevereiro 2026"
 ---
 
 Rolando o feed do Youtube, deparei-me com um vídeo cuja thumb tinha inscrito "O que aprendi com esse anime". Cliquei e na descrição vi que era um anime chamado 'Golden Boy'. Nem pensei em assistir ao vídeo. Não sei porquê, mas fui imediatamente atrás de assistir ao anime. Eu queria ver o que EU poderia aprender com ele. Afinal, aprender é  muito bom, não é mesmo?

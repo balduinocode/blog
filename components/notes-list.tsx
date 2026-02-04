@@ -1,5 +1,6 @@
 import { notes } from "@/content/notes"
 import { cn } from "@/lib/utils"
+import { sortByDateDesc } from "@/lib/date"
 import { ResizeHandle } from "./resize-handle"
 import { Footer } from "./footer"
 
@@ -11,19 +12,8 @@ interface NotesListProps {
   onMouseDown: (e: React.MouseEvent) => void
 }
 
-// Helper function to parse date string (MM-DD-YYYY) and return comparable timestamp
-function parseNoteDate(dateString: string): number {
-  const [month, day, year] = dateString.split('-').map(Number)
-  return new Date(year, month - 1, day).getTime()
-}
-
-// Sort notes in reverse chronological order (newest first)
-function sortNotesByDate() {
-  return [...notes].sort((a, b) => parseNoteDate(b.date) - parseNoteDate(a.date))
-}
-
 export function NotesList({ selectedNote, onSelectNote, width, isDragging, onMouseDown }: NotesListProps) {
-  const sortedNotes = sortNotesByDate()
+  const sortedNotes = sortByDateDesc(notes)
   return (
     <div
       style={{ width: `${width}px` }}
