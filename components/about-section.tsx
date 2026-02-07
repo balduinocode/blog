@@ -13,7 +13,7 @@ export function AboutSection() {
           <p className="text-muted-foreground">substantivo</p>
           <ol className="space-y-2 list-decimal list-inside">
             <li className="text-foreground">
-              graduando em filosofia, diretor criativo amador, poeta amador, programador amador, etc...
+              graduando em filosofia, diretor de arte amador, poeta amador, programador amador, etc...
             </li>
           </ol>
         </div>
@@ -48,11 +48,11 @@ export function AboutSection() {
               </a>
             </span>
           </div>
-          <div className="flex flex-wrap items-center gap-x-4 gap-y-1.5 min-w-0">
-            <span className="text-muted-foreground shrink-0">Serviços:</span>
-            <span className="flex flex-wrap items-center gap-x-4 gap-y-1.5">
+          <div className="flex flex-wrap items-center gap-x-2 gap-y-1.5 min-w-0">
+            <span className="text-muted-foreground shrink-0">Trabalho:</span>
+            <span className="flex flex-wrap items-center gap-x-2 gap-y-1.5">
               <span className="text-foreground opacity-50 cursor-not-allowed">
-                Apps/Automações
+                Bots/Sistemas
               </span>
               <a
                 href="https://cdn.jsdelivr.net/gh/balduinocode/blog@b56e0f6c38070a0bc2ce0327e5b8b23ba32c73b4/pdf-dda.pdf#view=Fit"
