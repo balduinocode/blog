@@ -52,7 +52,7 @@ export function AboutSection() {
             <span className="text-muted-foreground shrink-0">Serviços:</span>
             <span className="flex flex-wrap items-center gap-x-4 gap-y-1.5">
               <span className="text-foreground opacity-50 cursor-not-allowed">
-                Software/Automações
+                Apps/Automações
               </span>
               <a
                 href="https://cdn.jsdelivr.net/gh/balduinocode/blog@b56e0f6c38070a0bc2ce0327e5b8b23ba32c73b4/pdf-dda.pdf#view=Fit"
