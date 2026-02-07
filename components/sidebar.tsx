@@ -76,8 +76,8 @@ export function Sidebar({ activeTab, onTabChange, width, isDragging, onMouseDown
             key={tab}
             onClick={() => onTabChange(tab)}
             className={cn(
-              "text-left py-1 transition-colors uppercase tracking-widest text-xs",
-              activeTab === tab ? "text-foreground" : "text-foreground/40 hover:text-foreground/70",
+              "text-left py-1 uppercase tracking-widest text-xs",
+              activeTab === tab ? "text-foreground" : "text-foreground/40 hover:text-foreground/70 hover:transition-colors",
             )}
           >
             {tabLabels[tab]}

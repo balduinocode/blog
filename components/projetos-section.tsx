@@ -8,11 +8,16 @@ import { useResizable } from "@/hooks/use-resizable"
 
 interface ProjetosSectionProps {
   sidebarWidth: number
+  selectedProjeto?: string | null
+  onSelectProjeto?: (slug: string | null) => void
 }
 
-export function ProjetosSection({ sidebarWidth }: ProjetosSectionProps) {
-  const [selectedProjeto, setSelectedProjeto] = useState<string | null>(null)
-  
+export function ProjetosSection({ sidebarWidth, selectedProjeto: controlledProjeto, onSelectProjeto }: ProjetosSectionProps) {
+  const [internalProjeto, setInternalProjeto] = useState<string | null>(null)
+  const isControlled = controlledProjeto !== undefined && onSelectProjeto !== undefined
+  const selectedProjeto = isControlled ? controlledProjeto : internalProjeto
+  const setSelectedProjeto = isControlled ? onSelectProjeto! : setInternalProjeto
+
   const projetosList = useResizable({
     initialWidth: 600,
     minWidth: 200,
@@ -24,7 +29,7 @@ export function ProjetosSection({ sidebarWidth }: ProjetosSectionProps) {
     <>
       <ProjetosList
         selectedProjeto={selectedProjeto}
-        onSelectProjeto={setSelectedProjeto}
+        onSelectProjeto={(slug) => setSelectedProjeto(slug)}
         width={projetosList.width}
         isDragging={projetosList.isDragging}
         onMouseDown={projetosList.handleMouseDown}

@@ -18,32 +18,52 @@ export function AboutSection() {
           </ol>
         </div>
 
-        <div className="flex items-center gap-4 pt-4">
-          <span className="text-muted-foreground">Contato:</span>
-          <a
-            href="https://instagram.com/1martinsalex"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="text-foreground opacity-70 underline decoration-dotted decoration-1 underline-offset-2 transition-all hover:opacity-100 hover:decoration-solid"
-          >
-            Instagram
-          </a>
-          <a
-            href="https://www.youtube.com/@oalexmartins"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="text-foreground opacity-70 underline decoration-dotted decoration-1 underline-offset-2 transition-all hover:opacity-100 hover:decoration-solid"
-          >
-            Youtube
-          </a>
-          <a
-            href="mailto:contato@alexmartins.work"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="text-foreground opacity-70 underline decoration-dotted decoration-1 underline-offset-2 transition-all hover:opacity-100 hover:decoration-solid"
-          >
-            Email
-          </a>
+        <div className="flex flex-col gap-0.5 pt-4 min-w-0">
+          <div className="flex flex-wrap items-center gap-x-4 gap-y-1.5 min-w-0">
+            <span className="text-muted-foreground shrink-0">Contato:</span>
+            <span className="flex flex-wrap items-center gap-x-4 gap-y-1.5">
+              <a
+                href="https://instagram.com/1martinsalex"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-foreground opacity-70 underline decoration-dotted decoration-1 underline-offset-2 transition-all hover:opacity-100 hover:decoration-solid"
+              >
+                Instagram
+              </a>
+              <a
+                href="https://www.youtube.com/@oalexmartins"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-foreground opacity-70 underline decoration-dotted decoration-1 underline-offset-2 transition-all hover:opacity-100 hover:decoration-solid"
+              >
+                Youtube
+              </a>
+              <a
+                href="mailto:contato@alexmartins.work"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-foreground opacity-70 underline decoration-dotted decoration-1 underline-offset-2 transition-all hover:opacity-100 hover:decoration-solid"
+              >
+                Email
+              </a>
+            </span>
+          </div>
+          <div className="flex flex-wrap items-center gap-x-4 gap-y-1.5 min-w-0">
+            <span className="text-muted-foreground shrink-0">Serviços:</span>
+            <span className="flex flex-wrap items-center gap-x-4 gap-y-1.5">
+              <span className="text-foreground opacity-50 cursor-not-allowed">
+                Software/Automações
+              </span>
+              <a
+                href="https://cdn.jsdelivr.net/gh/balduinocode/blog@b56e0f6c38070a0bc2ce0327e5b8b23ba32c73b4/pdf-dda.pdf#view=Fit"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-foreground opacity-70 underline decoration-dotted decoration-1 underline-offset-2 transition-all hover:opacity-100 hover:decoration-solid"
+              >
+                Direção de Arte
+              </a>
+            </span>
+          </div>
         </div>
       </div>
 

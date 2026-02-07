@@ -8,11 +8,16 @@ import { useResizable } from "@/hooks/use-resizable"
 
 interface PoemasSectionProps {
   sidebarWidth: number
+  selectedPoema?: string | null
+  onSelectPoema?: (slug: string | null) => void
 }
 
-export function PoemasSection({ sidebarWidth }: PoemasSectionProps) {
-  const [selectedPoema, setSelectedPoema] = useState<string | null>(null)
-  
+export function PoemasSection({ sidebarWidth, selectedPoema: controlledPoema, onSelectPoema }: PoemasSectionProps) {
+  const [internalPoema, setInternalPoema] = useState<string | null>(null)
+  const isControlled = controlledPoema !== undefined && onSelectPoema !== undefined
+  const selectedPoema = isControlled ? controlledPoema : internalPoema
+  const setSelectedPoema = isControlled ? onSelectPoema! : setInternalPoema
+
   const poemasList = useResizable({
     initialWidth: 600,
     minWidth: 200,
@@ -24,7 +29,7 @@ export function PoemasSection({ sidebarWidth }: PoemasSectionProps) {
     <>
       <PoemasList
         selectedPoema={selectedPoema}
-        onSelectPoema={setSelectedPoema}
+        onSelectPoema={(slug) => setSelectedPoema(slug)}
         width={poemasList.width}
         isDragging={poemasList.isDragging}
         onMouseDown={poemasList.handleMouseDown}

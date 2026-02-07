@@ -8,11 +8,16 @@ import { useResizable } from "@/hooks/use-resizable"
 
 interface ModelosMentaisSectionProps {
   sidebarWidth: number
+  selectedModeloMental?: string | null
+  onSelectModeloMental?: (slug: string | null) => void
 }
 
-export function ModelosMentaisSection({ sidebarWidth }: ModelosMentaisSectionProps) {
-  const [selectedModeloMental, setSelectedModeloMental] = useState<string | null>(null)
-  
+export function ModelosMentaisSection({ sidebarWidth, selectedModeloMental: controlledModelo, onSelectModeloMental }: ModelosMentaisSectionProps) {
+  const [internalModelo, setInternalModelo] = useState<string | null>(null)
+  const isControlled = controlledModelo !== undefined && onSelectModeloMental !== undefined
+  const selectedModeloMental = isControlled ? controlledModelo : internalModelo
+  const setSelectedModeloMental = isControlled ? onSelectModeloMental! : setInternalModelo
+
   const modelosMentaisList = useResizable({
     initialWidth: 600,
     minWidth: 200,
@@ -24,7 +29,7 @@ export function ModelosMentaisSection({ sidebarWidth }: ModelosMentaisSectionPro
     <>
       <ModelosMentaisList
         selectedModeloMental={selectedModeloMental}
-        onSelectModeloMental={setSelectedModeloMental}
+        onSelectModeloMental={(slug) => setSelectedModeloMental(slug)}
         width={modelosMentaisList.width}
         isDragging={modelosMentaisList.isDragging}
         onMouseDown={modelosMentaisList.handleMouseDown}
